@@ -77,3 +77,18 @@ margin-right: 2px;
 div.h5 {
     margin-top: 10px;
 }
+.green {
+    background-color: green;
+    height:40px;
+    width: 150px;
+}
+.orange{
+    background-color: orange;
+    height:40px;
+    width: 150px;
+}
+.red {
+    background-color: red;
+    height:40px;
+    width: 150px;
+}

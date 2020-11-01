@@ -19,8 +19,35 @@ function one(city) {
             $('#temp').text("Temp: " + tempF.toFixed(2) + " °F");
             $('#humidity').text("Humidity: " + humidity + " %");
             $('#windSpeed').text("Wind Speed: " + windSpeed + " MPH");
-            $('#uvIndex').text("UV Index: ");
+           
+            let lat = data.coord.lat;
+            let lon = data.coord.lon;
+            let UVLink = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid="+ APIKey;
+            $.ajax({
+                url: UVLink,
+                type: "GET",
+                dataType: "json",
+                success: function (UVIndex) {
+                    console.log(UVIndex.value);
+                    let UV = UVIndex.value;
+                    $('#uvIndex').text("UV Index: " + UV);
+                    if(UV >=1 && UV <=5) {
+                        $('#uvIndex').addClass('green');
+                    }
+                        else if (UV >5 && UV<=7) {
+                            $('#uvIndex').addClass('orange');
+                        }
+                        else if (UV>7) {
+                            $('#uvIndex').addClass('red');
+                        }
+                    
+
         }
+    });
+
+        }
+        
+        
     });
  //Forecast API
     let foreCastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey;
