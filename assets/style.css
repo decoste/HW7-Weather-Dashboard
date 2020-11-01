@@ -1,15 +1,15 @@
 .container {
-    margin-top: 30px;;
-width: 750px;
-height: 600px;
-margin-right: 250px;
-
+margin-top: 30px;;
+width: 1000px;
+height: 500px;
+margin-right: 10px;
 }
 .mid{
     height: 200px;
     background-color: white;
     border-style: groove;
     line-height: 2;
+    width: 800px;
 }
 .buttom {
     margin-top: 10px;
@@ -43,29 +43,30 @@ margin-right: 250px;
     margin-top: 40px;
 }
 .cardOne{
-    width: 150px;
+    width: 200px;
     float:left;
     height:200px;
     margin:10px;
 }
 .cardTwo{
-    width: 150px;
+    width: 200px;
     float:left;
     height:200px;
     margin:10px;
 }
 .cardThree{
-    width: 150px;
+    width: 200px;
     float:left;
     height:200px;
     margin:10px;
 }
 .cardFour{
-    width: 150px;
+    width: 200px;
     float:left;
     height:200px;
     margin:10px;
 }
 .cards{
     background-color: #1E90FF;
+    color: white;
 }
