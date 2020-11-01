@@ -22,7 +22,7 @@ function one(city) {
            
             let lat = data.coord.lat;
             let lon = data.coord.lon;
-            let UVLink = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid="+ APIKey;
+            let UVLink = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid="+ APIKey;
             $.ajax({
                 url: UVLink,
                 type: "GET",
@@ -38,7 +38,7 @@ function one(city) {
                             $('#uvIndex').addClass('orange');
                         }
                         else if (UV>7) {
-                            $('#uvIndex').addClass('red');
+                            $('#uvIndex').addClass('');
                         }
                     
 
@@ -94,11 +94,11 @@ function one(city) {
             $('#hum4').text("Humidity: " + hum4 + " MPH");
             $('#hum5').text("Humidity: " + hum5 + " MPH");
 
-            let code1= $("<img id=image>").attr("src", "http://openweathermap.org/img/w/" + data2.list[0].weather[0].icon + ".png");
-            let code2= $("<img id=image>").attr("src", "http://openweathermap.org/img/w/" + data2.list[12].weather[0].icon + ".png");
-            let code3= $("<img id=image>").attr("src", "http://openweathermap.org/img/w/" + data2.list[20].weather[0].icon + ".png");
-            let code4= $("<img id=image>").attr("src", "http://openweathermap.org/img/w/" + data2.list[27].weather[0].icon + ".png");
-            let code5= $("<img id=image>").attr("src", "http://openweathermap.org/img/w/" + data2.list[30].weather[0].icon + ".png");
+            let code1= $("<img id=image>").attr("src", "https://openweathermap.org/img/w/" + data2.list[0].weather[0].icon + ".png");
+            let code2= $("<img id=image>").attr("src", "https://openweathermap.org/img/w/" + data2.list[12].weather[0].icon + ".png");
+            let code3= $("<img id=image>").attr("src", "https://openweathermap.org/img/w/" + data2.list[20].weather[0].icon + ".png");
+            let code4= $("<img id=image>").attr("src", "https://openweathermap.org/img/w/" + data2.list[27].weather[0].icon + ".png");
+            let code5= $("<img id=image>").attr("src", "https://openweathermap.org/img/w/" + data2.list[30].weather[0].icon + ".png");
             //clear images before a new input
             $("#icon1").html("");
             $("#icon2").html("");
