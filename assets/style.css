@@ -1,0 +1,71 @@
+.container {
+    margin-top: 30px;;
+width: 750px;
+height: 600px;
+margin-right: 250px;
+
+}
+.mid{
+    height: 200px;
+    background-color: white;
+    border-style: groove;
+    line-height: 2;
+}
+.buttom {
+    margin-top: 10px;
+    height: 300px;
+    line-height: 2;
+}
+
+.side{
+    margin-top: 30px;
+    margin-left: 30px;;
+    float: left;
+    width: 300px;
+    height: 500px;
+    background-color: #E6E6FA;
+    border-style: groove;
+    position: absolute;
+}
+.nav {
+    color: honeydew;
+}
+.nav-bar{
+    color: ivory;
+    height: 50px;
+    text-align: center;
+    display: inline-block;  
+}
+#btn {
+    background-color:  #1E90FF;
+}
+.search{
+    margin-top: 40px;
+}
+.cardOne{
+    width: 150px;
+    float:left;
+    height:200px;
+    margin:10px;
+}
+.cardTwo{
+    width: 150px;
+    float:left;
+    height:200px;
+    margin:10px;
+}
+.cardThree{
+    width: 150px;
+    float:left;
+    height:200px;
+    margin:10px;
+}
+.cardFour{
+    width: 150px;
+    float:left;
+    height:200px;
+    margin:10px;
+}
+.cards{
+    background-color: #1E90FF;
+}
