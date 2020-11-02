@@ -1,5 +1,5 @@
 function one(city) {
- //Weather API
+    //Weather API
     let APIKey = "96c8874a0753b8470e0d5572d7035272"
     let WeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city +
         "&appid=" + APIKey;
@@ -19,10 +19,10 @@ function one(city) {
             $('#temp').text("Temp: " + tempF.toFixed(2) + " °F");
             $('#humidity').text("Humidity: " + humidity + " %");
             $('#windSpeed').text("Wind Speed: " + windSpeed + " MPH");
-           
+
             let lat = data.coord.lat;
             let lon = data.coord.lon;
-            let UVLink = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid="+ APIKey;
+            let UVLink = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
             $.ajax({
                 url: UVLink,
                 type: "GET",
@@ -30,26 +30,26 @@ function one(city) {
                 success: function (UVIndex) {
                     console.log(UVIndex.value);
                     let UV = UVIndex.value;
-                    $('#uvIndex').text("UV Index: " + UV);
-                    if(UV >=1 && UV <=5) {
-                        $('#uvIndex').addClass('green');
+                    $('#uv').text("" + UV);
+                    if (UV >= 1 && UV <= 5) {
+                        $('#uv').addClass('green');
                     }
-                        else if (UV >5 && UV<=7) {
-                            $('#uvIndex').addClass('orange');
-                        }
-                        else if (UV>7) {
-                            $('#uvIndex').addClass('');
-                        }
-                    
+                    else if (UV > 5 && UV <= 7) {
+                        $('#uv').addClass('orange');
+                    }
+                    else if (UV > 7) {
+                        $('#uv').addClass('');
+                    }
+
+
+                }
+            });
 
         }
-    });
 
-        }
-        
-        
+
     });
- //Forecast API
+    //Forecast API
     let foreCastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey;
     $.ajax({
         url: foreCastURL,
@@ -57,7 +57,7 @@ function one(city) {
         dataType: "json",
         success: function (data2) {
             console.log(data2);
-//I need to improve the code here and use for loop
+            //I need to improve the code here and use for loop
             let date1 = data2.list[0].dt_txt;
             let date2 = data2.list[12].dt_txt;
             let date3 = data2.list[20].dt_txt;
@@ -70,11 +70,11 @@ function one(city) {
             $('#date4').text(date4);
             $('#date5').text(date5);
 
-            let temp1 = (data2.list[0].main.temp- 273.15) * 1.80 + 32;
-            let temp2 = (data2.list[5].main.temp- 273.15) * 1.80 + 32;
-            let temp3 = (data2.list[12].main.temp- 273.15) * 1.80 + 32;
-            let temp4 = (data2.list[20].main.temp- 273.15) * 1.80 + 32;
-            let temp5 = (data2.list[30].main.temp- 273.15) * 1.80 + 32;
+            let temp1 = (data2.list[0].main.temp - 273.15) * 1.80 + 32;
+            let temp2 = (data2.list[5].main.temp - 273.15) * 1.80 + 32;
+            let temp3 = (data2.list[12].main.temp - 273.15) * 1.80 + 32;
+            let temp4 = (data2.list[20].main.temp - 273.15) * 1.80 + 32;
+            let temp5 = (data2.list[30].main.temp - 273.15) * 1.80 + 32;
 
             $('#temp1').text("Temp: " + temp1.toFixed(2) + " °F");
             $('#temp2').text("Temp: " + temp2.toFixed(2) + " °F");
@@ -94,11 +94,11 @@ function one(city) {
             $('#hum4').text("Humidity: " + hum4 + " MPH");
             $('#hum5').text("Humidity: " + hum5 + " MPH");
 
-            let code1= $("<img id=image>").attr("src", "https://openweathermap.org/img/w/" + data2.list[0].weather[0].icon + ".png");
-            let code2= $("<img id=image>").attr("src", "https://openweathermap.org/img/w/" + data2.list[12].weather[0].icon + ".png");
-            let code3= $("<img id=image>").attr("src", "https://openweathermap.org/img/w/" + data2.list[20].weather[0].icon + ".png");
-            let code4= $("<img id=image>").attr("src", "https://openweathermap.org/img/w/" + data2.list[27].weather[0].icon + ".png");
-            let code5= $("<img id=image>").attr("src", "https://openweathermap.org/img/w/" + data2.list[30].weather[0].icon + ".png");
+            let code1 = $("<img id=image>").attr("src", "https://openweathermap.org/img/w/" + data2.list[0].weather[0].icon + ".png");
+            let code2 = $("<img id=image>").attr("src", "https://openweathermap.org/img/w/" + data2.list[12].weather[0].icon + ".png");
+            let code3 = $("<img id=image>").attr("src", "https://openweathermap.org/img/w/" + data2.list[20].weather[0].icon + ".png");
+            let code4 = $("<img id=image>").attr("src", "https://openweathermap.org/img/w/" + data2.list[27].weather[0].icon + ".png");
+            let code5 = $("<img id=image>").attr("src", "https://openweathermap.org/img/w/" + data2.list[30].weather[0].icon + ".png");
             //clear images before a new input
             $("#icon1").html("");
             $("#icon2").html("");
@@ -115,11 +115,17 @@ function one(city) {
     });
 
 }
-
+let cities = [];
+function addCity() {
+    const searchedCity = $('#enteredCity').val().trim();
+    let c = cities.push(searchedCity);
+    $('#enteredCity').val("");
+    console.log(cities);
+    one(searchedCity);
+}
 //click function for button
 $('#btn').on("click", function (event) {
     event.preventDefault();
-    const searchedCity = $('#enteredCity').val().trim();
-    $('#enteredCity').val("");
-    one(searchedCity);
+    addCity(cities)
+
 });

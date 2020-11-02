@@ -80,15 +80,18 @@ div.h5 {
 .green {
     background-color: green;
     height:40px;
-    width: 150px;
+    width: 50px;
 }
 .orange{
     background-color: orange;
     height:40px;
-    width: 150px;
+    width: 50px;
 }
 .red {
     background-color: red;
     height:40px;
-    width: 150px;
+    width: 50px;
+}
+.test p{
+    display:inline-block;
 }
